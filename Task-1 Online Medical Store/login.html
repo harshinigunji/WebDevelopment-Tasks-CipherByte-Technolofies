@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Medical Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Client-side validation and login simulation
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Both username and password are required.");
+                return false;
+            }
+
+            // Retrieve the stored registration details from localStorage
+            const registeredUser = JSON.parse(localStorage.getItem('registeredUser'));
+
+            // Check if the entered credentials match the registered user
+            if (registeredUser && registeredUser.email === username && registeredUser.password === password) {
+                // Login successful
+                alert("Login successful!");
+                window.location.href = "account.html"; // Redirect to home page
+            } else {
+                // Login failed
+                alert("Invalid username or password.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Online Medical Store</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Product List</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+                <a href="admin.html">Admin Panel</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username (Email):</label>
+                <input type="email" id="username" name="username" placeholder="Enter your email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit">Login</button>
+                
+                <p>Don't have an account? <a href="register.html">Register here</a></p>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Online Medical Store</p>
+    </footer>
+
+    <script>
+        // Attach the validation function to the form's submit event
+        document.getElementById('loginForm').addEventListener('submit', validateForm);
+    </script>
+</body>
+</html>

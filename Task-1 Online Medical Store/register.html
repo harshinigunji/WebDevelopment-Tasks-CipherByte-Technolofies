@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Online Medical Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .header-container {
+            background-color: #09a7f7;
+            color: white;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s;
+        }
+        .error {
+            border-color: #e74c3c;
+        }
+        .success {
+            border-color: #2ecc71;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .success-message {
+            color: #2ecc71;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Online Medical Store</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Product List</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html">Login</a>
+                <a href="admin.html">Admin Panel</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="username">Username (Email):</label>
+            <input type="email" id="username" name="username" required>
+            <span class="error-message" id="usernameError">Username is required</span>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="error-message" id="passwordError">Password must be at least 6 characters</span>
+            
+            <button type="submit">Register</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Online Medical Store</p>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get form fields
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Store the registration details in localStorage
+            localStorage.setItem('registeredUser', JSON.stringify({ email: username, password: password }));
+
+            // Redirect to home page
+            window.location.href = "login.html"; // Redirect to home page
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<htmhtml lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List - Online Medical Store</title>
+    <style>
+        /* Basic styling for the form and layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007BFF;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            width: 250px;
+            text-align: center;
+        }
+        .product-item h3 {
+            margin-bottom: 15px;
+        }
+        .product-item p {
+            margin: 10px 0;
+        }
+        .product-item form {
+            margin-top: 15px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Product List</h2>
+        <div class="product-list">
+            <!-- Sample product item -->
+            <div class="product-item">
+                <h3>Product Name</h3>
+                <p>Price: $10.00</p>
+                <!-- Form to add product to cart -->
+                <form action="add_to_cart.html" method="POST">
+                    <input type="hidden" name="product_id" value="1">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+
+            <div class="product-item">
+                <h3>Another Product</h3>
+                <p>Price: $20.00</p>
+                <form action="add_to_cart.html" method="POST">
+                    <input type="hidden" name="product_id" value="2">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+
+            <!-- Add more products as needed -->
+        </div>
+    </div>
+
+</body>
+</htmhtml
